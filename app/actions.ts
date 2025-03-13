@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function handleSubmit(formData: FormData) {
@@ -24,6 +25,8 @@ export async function handleSubmit(formData: FormData) {
             authorImage: user.picture as string
         }
     })
+
+    revalidatePath("/");
     
     return redirect("/dashboard");
 
