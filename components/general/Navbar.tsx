@@ -1,8 +1,8 @@
 
-import Link from "next/link"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { buttonVariants } from "@/components/ui/button";
+import { LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import Link from "next/link";
 
 const Navbar = async () => {
     const { getUser } = getKindeServerSession();

@@ -1,6 +1,6 @@
 "use server"
 
-import { prisma } from "@/lib/db"
+import { prisma } from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -14,7 +14,7 @@ export async function handleSubmit(formData: FormData) {
     const content = formData.get("content");
     const imageUrl = formData.get("imageUrl");
 
-    const data = await prisma.blogPost.create({
+   await prisma.blogPost.create({
         data:{
             title: title as string,
             content: content as string,
