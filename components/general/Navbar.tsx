@@ -1,13 +1,13 @@
-
+'use client'
 import { buttonVariants } from "@/components/ui/button";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link";
 
-const Navbar = async () => {
-    const { getUser } = getKindeServerSession();
+const Navbar =  () => {
+    const { getUser } = useKindeBrowserClient();
 
-    const user = await getUser();
+    const user = getUser();
 
 
     return (
